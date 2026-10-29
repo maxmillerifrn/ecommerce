@@ -14,9 +14,9 @@ class Papel(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True)
     nome: str = Field(default=None, nullable=False)
 
-class UsuariosPapeis(SQLModel, table=True):
-    id_usuario: int = Field(default=None,primary_key=True, foreign_key="usuario.id")
-    id_papel: int = Field(default=None,primary_key=True, foreign_key="papel.id")
+#class UsuariosPapeis(SQLModel, table=True):
+##    id_usuario: int = Field(default=None,primary_key=True, foreign_key="usuario.id")
+#    id_papel: int = Field(default=None,primary_key=True, foreign_key="papel.id")
 
 class Produtos(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True)
@@ -29,18 +29,18 @@ class Categorias(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True)
     nome: str = Field(default=None, nullable=False)
 
-class ProdutosCategorias(SQLModel, table=True):
-    id_produto: int = Field(default=None, primary_key=True,foreign_key="produto.id")
-    id_categoria: int = Field(default=None, primary_key=True,foreign_key="categoria.id")
+#class ProdutosCategorias(SQLModel, table=True):
+#    id_produto: int = Field(default=None, primary_key=True,foreign_key="produto.id")
+#    id_categoria: int = Field(default=None, primary_key=True,foreign_key="categoria.id")
 
 class Pedidos(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True)
-    id_usuario: int = Field(default=None, foreign_key="usuario.id")
+    #id_usuario: int = Field(default=None, foreign_key="usuario.id")
     total: float = Field(default=None, nullable=False)
     status: str = Field(default=None, nullable=False)
     criado_em: datetime = Field(default_factory=datetime.now)
 
-class ItensPedido(SQLModel, table=True):
+'''class ItensPedido(SQLModel, table=True):
     id_pedido: int = Field(default=None,primary_key=True, foreign_key="pedido.id")
     id_produto: int = Field(default=None, primary_key=True,foreign_key="produto.id")
     quantidade: int = Field(default=None, nullable=False)
@@ -75,3 +75,4 @@ class Estoque(SQLModel, table=True):
     id_produto: int = Field(default=None, foreign_key="produto.id")
     quantidade: int = Field(default=None, nullable=False)
     atualizado_em: datetime = Field(default_factory=datetime.now)
+    '''
